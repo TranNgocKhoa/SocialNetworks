@@ -50,13 +50,13 @@ public class EgoGrader extends Grader {
     public void run() {
         try {
             Graph graph = new CapGraph();
-            GraphLoader.loadGraph(graph, this.getClass().getResource("data/facebook_ucsd.txt").getPath());
+            GraphLoader.loadGraph(graph, ClassLoader.getSystemClassLoader().getResource("data/facebook_ucsd.txt").getPath());
             feedback += "\nGRAPH: facebook_ucsd.txt";
             for (int i = 0; i < 10; i++) {
                 feedback += appendFeedback(i + 1, "Starting from node " + i);
                 // Run user's implementation and make the output readable
                 HashMap<Integer, HashSet<Integer>> res = graph.getEgonet(i).exportGraph();
-                BufferedReader br = new BufferedReader(new FileReader(this.getClass().getResource("resource/data/ego_answers/ego_" + i + ".txt").getPath()));
+                BufferedReader br = new BufferedReader(new FileReader(ClassLoader.getSystemClassLoader().getResource("data/ego_answers/ego_" + i + ".txt").getPath()));
                 String next;
                 boolean failed = false;
                 // Scan though the file
