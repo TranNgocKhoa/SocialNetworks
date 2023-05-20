@@ -61,7 +61,7 @@ public class SCCGrader extends Grader {
                 Graph g = new CapGraph();
                 Set<Integer> vertices;
 
-                String answerFile = Objects.requireNonNull(this.getClass().getResource("data/scc_answers/scc_" + (i + 1) + ".txt")).getPath();
+                String answerFile = Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("data/scc_answers/scc_" + (i + 1) + ".txt")).getPath();
                 GraphLoader.loadGraph(g, "data/scc/test_" + (i + 1) + ".txt");
                 BufferedReader br = new BufferedReader(new FileReader(answerFile));
                 feedback += appendFeedback(i + 1, "\nGRAPH: T" + (i + 1));

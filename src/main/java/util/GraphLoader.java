@@ -23,7 +23,7 @@ public class GraphLoader {
         Set<Integer> seen = new HashSet<Integer>();
         Scanner sc;
         try {
-            sc = new Scanner(new File(filename));
+            sc = new Scanner(new File(ClassLoader.getSystemClassLoader().getResource(filename).getPath()));
         } catch (Exception e) {
             e.printStackTrace();
             return;
